@@ -232,7 +232,7 @@ Use getArtistByIndex to do the following:
 
 🌟 EXAMPLE: if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(array,number,string) {
+function getArtistByIndex(array,number) {
   return `the artist at index ${array.id} is ${array.name}`;
 }
 console.log(getArtistByIndex(artists[0]));
@@ -268,9 +268,11 @@ Use removeArtist to do the following:
 🌟 EXAMPLE: if removeArtist is invoked with the artists array and the number 0, it will return the resulting array with Amedeo Modigliani removed from our dataset. */
 
 function removeArtist(array,number) {
-  /*Your Code Here*/
+  const removedArtist = [...array];
+  {removedArtist.splice([number],1)}
+  return removedArtist;
 }
-
+console.log(removeArtist(artists,0));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -289,10 +291,21 @@ Use addArtist to do the following:
 5. Add the newly created object to the copied array, then return the copied array
 🌟 EXAMPLE: Invoking addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.') should return the artists array with the above object added to the end of the array. */
 
-function addArtist(array,name,years,genre,nationality,bio) {
-  /*Your Code Here*/
-}
+const myObject = 
+{ 
+  name: "Sadia Gray", 
+  years: "1996-2022",
+  genre: "Web Design", 
+  nationality: "American",
+  bio: "lorem ipsum"
+} 
 
+function addArtist(array,name,years,genre,nationality,bio) {
+  const artistsCopy = [... array];
+  {artistsCopy.push([myObject])}
+  return artistsCopy;
+}
+console.log(addArtist(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -303,10 +316,16 @@ Use lotsOfArt to do the following:
 🌟 EXAMPLE: lotsOfArt(artists) will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]
 */
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lotsOfArt(array) {
+  let artArray = [];
+  for(let i=0; i< array.length; i++){
+    if(array[i].paintings >= 100){
+      artArray.push(array[i].name);
+    }
+  }
+  return artArray;
 }
-
+console.log(lotsOfArt(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 8: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -319,8 +338,9 @@ Use artistInfo to do the following:
   "Frida Kahlo de Rivera (Spanish pronunciation: [ˈfɾiða ˈkalo]; born Magdalena Carmen Frida Kahlo y Calderón; 6 July 1907 – 13 July 1954) was a Mexican artist who painted many portraits, self-portraits and works inspired by the nature and artifacts of Mexico. Inspired by the country's popular culture, she employed a naïve folk art style to explore questions of identity, postcolonialism, gender, class and race in Mexican society. Her paintings often had strong autobiographical elements and mixed realism with fantasy. In addition to belonging to the post-revolutionary Mexicayotl movement, which sought to define a Mexican identity, Kahlo has been described as a surrealist or magical realist.Born to a German father and a mestiza mother, Kahlo spent most of her childhood and adult life at her family home in Coyoacán, La Casa Azul, now known and publicly accessible as the Frida Kahlo Museum. She was disabled by polio as a child. Until a traffic accident at age eighteen caused lifelong pain and medical problems, she had been a promising student headed for medical school. During her recovery, she returned to her childhood hobby of art with the idea of becoming an artist."
 */
 
-function artistInfo(/*Your Code Here*/){
-  /*Your Code Here*/
+function artistInfo(array,string){
+  let infoArray = [];
+
 }
 
 
@@ -336,8 +356,15 @@ Use artistByCountry to do the following:
 */
 
 function artistByCountry(array,string){
-  
+  let countryArray = [];
+  for(let i=0; i<array.length; i++){
+    if(array[i].nationality === 'Spanish'){
+      countryArray.push(array[i].name);
+    }
+  }
+  return countryArray;
 }
+console.log(artistByCountry(artists));
 
 
 /* ***** END OF TASKS ***** */
