@@ -340,10 +340,13 @@ Use artistInfo to do the following:
 */
 
 function artistInfo(array,string){
-  return `${array[string].bio}`;
+  for(let i=0; i<array.length;i++){
+    if(array[i].name === string){
+      return (array[i].bio);
+    }
+  }
 }
 console.log(artistInfo(artists, 'Frida Khalo'));
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 9: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistByCountry to do the following: 
