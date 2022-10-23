@@ -233,9 +233,9 @@ Use getArtistByIndex to do the following:
 🌟 EXAMPLE: if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
 function getArtistByIndex(array,number) {
-  return `the artist at index ${array.id} is ${array.name}`;
+  return `the artist at index ${number} is ${array[number].name}`;
 }
-console.log(getArtistByIndex(artists[0]));
+console.log(getArtistByIndex(artists,0));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -291,21 +291,22 @@ Use addArtist to do the following:
 5. Add the newly created object to the copied array, then return the copied array
 🌟 EXAMPLE: Invoking addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.') should return the artists array with the above object added to the end of the array. */
 
-const myObject = 
-{ 
-  name: "Sadia Gray", 
-  years: "1996-2022",
-  genre: "Web Design", 
-  nationality: "American",
-  bio: "lorem ipsum"
-} 
+
 
 function addArtist(array,name,years,genre,nationality,bio) {
   const artistsCopy = [... array];
-  {artistsCopy.push([myObject])}
+  const myObject = 
+{ 
+  name: name, 
+  years: years,
+  genre: genre, 
+  nationality: nationality,
+  bio: bio
+} 
+  artistsCopy.push(myObject)
   return artistsCopy;
 }
-console.log(addArtist(artists));
+console.log(addArtist(artists,'Sadia Gray','1996-2022','Web Design','American','lorem ipsum'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -339,10 +340,9 @@ Use artistInfo to do the following:
 */
 
 function artistInfo(array,string){
-  let infoArray = [];
-
+  return `${array[string].bio}`;
 }
-
+console.log(artistInfo(artists, 'Frida Khalo'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 9: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -358,13 +358,13 @@ Use artistByCountry to do the following:
 function artistByCountry(array,string){
   let countryArray = [];
   for(let i=0; i<array.length; i++){
-    if(array[i].nationality === 'Spanish'){
+    if(array[i].nationality === string){
       countryArray.push(array[i].name);
     }
   }
   return countryArray;
 }
-console.log(artistByCountry(artists));
+console.log(artistByCountry(artists, 'Spanish'));
 
 
 /* ***** END OF TASKS ***** */
